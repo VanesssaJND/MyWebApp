@@ -13,6 +13,16 @@ public class User {
     @Column(nullable = false, length = 15)
     private String password;
 
+    private boolean enabled;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     @Override
     public String toString() {
         return "User{" +
