@@ -1,14 +1,17 @@
 package com.mycompany.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@AllArgsConstructor
 @Service
+
+
 public class UserService {
-    @Autowired private UserRepository repository;
+
+    private UserRepository repository;
 
     public List<User> findAll(){
         return (List<User>) repository.findAll();
@@ -24,7 +27,6 @@ public class UserService {
             return result.get();
         }
         throw new UserNotFoundException("Could not find any users with ID: " + id);
-
     }
 
     public void delete(Integer id) throws UserNotFoundException {
